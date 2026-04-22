@@ -1,5 +1,11 @@
 # Insurance Claim Decision Support System (DSS)
 
+## Live Demo
+Access the deployed interactive expert system here:
+[https://insurance-claim-expert-system-dhfs.onrender.com](https://insurance-claim-expert-system-dhfs.onrender.com)
+
+This live deployment demonstrates the working implementation of the Rule-Based Insurance Claim Decision Support System using Propositional Logic and Forward Chaining Inference with database-backed claim tracking and structured decision reporting.
+
 ### AI Lab Assignment – Problem 14
 **Rule-Based Insurance Claim Decision System using Propositional Logic**
 
@@ -105,16 +111,23 @@ The SQLite database (`instance/database.db`) is automatically generated during t
 
 ---
 
-## Sample Logical Rule Example
+## Sample Output
 
-**IF** policy_active **AND** documents_valid **AND** incident_reported  
-**THEN** Approve Claim
+**Example Input Facts:**
+- Policy Active = TRUE
+- Documents Valid = TRUE
+- Incident Reported = TRUE
+- Fraud Suspected = FALSE
+- Verification Pending = FALSE
 
-**IF** fraud_suspected  
-**THEN** Reject Claim
+**Rule Applied:**
+`IF policy_active AND documents_valid AND incident_reported THEN Approve Claim`
 
-**IF** verification_pending  
-**THEN** Manual Review Required
+**Final Decision:**
+`CLAIM APPROVED`
+
+**Risk Classification:**
+`LOW RISK` (Confidence Score: High)
 
 ---
 
