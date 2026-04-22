@@ -1,0 +1,54 @@
+<h1 style="margin-bottom: 2rem;">Claim Reports & Audit Trail</h1>
+
+<div style="display: flex; flex-direction: column; gap: 2.5rem;">
+    <!-- FEATURE 2: SELECTABLE CLAIM HISTORY -->
+    <div class="glass-card" style="max-width: 100%;">
+        <h3 style="margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Previous Claim History</h3>
+        
+        <div style="overflow-x: auto;">
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Claim Type</th>
+                        <th>Decision</th>
+                        <th>Risk Level</th>
+                        <th>Confidence</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="claim-history-body">
+                    {% for claim in claims %}
+                    <tr>
+                        <td>{{ claim.claim_type }}</td>
+                        <td>
+                            <span class="badge {% if claim.decision == 'Approved' %}badge-success{% elif claim.decision == 'Rejected' %}badge-danger{% else %}badge-warning{% endif %}">
+                                {{ claim.decision }}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="badge {% if claim.risk_level == 'LOW RISK' %}badge-success{% elif claim.risk_level == 'MEDIUM RISK' %}badge-warning{% else %}badge-danger{% endif %}">
+                                {{ claim.risk_level }}
+                            </span>
+                        </td>
+                        <td>{{ claim.confidence_score }}%</td>
+                        <td style="color: var(--text-muted); font-size: 0.85rem;">{{ claim.timestamp.strftime('%d %b %H:%M') }}</td>
+                        <td style="display: flex; gap: 0.5rem;">
+                            <a href="/generate_report/{{ claim.id }}" class="btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; width: auto; border-radius: 8px; text-decoration: none;">Report</a>
+                            <a href="/delete_claim/{{ claim.id }}" class="btn-primary delete-btn" style="padding: 0.4rem 0.8rem; font-size: 0.75rem; width: auto; border-radius: 8px; text-decoration: none;">Delete</a>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 2rem;">No claims evaluated yet.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="glass-card" style="max-width: 100%; text-align: center; padding: 2rem; border-style: dashed; border-color: var(--primary);">
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Select any claim from the table above to generate a full expert system audit trail report.</p>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+<h1 style="margin-bottom: 2rem;">Explainable AI Reasoning Dashboard</h1>
+
+<div style="display: flex; flex-direction: column; gap: 2.5rem;">
+    
+    <!-- UPGRADE 4: DECISION STATUS HEADER PANEL -->
+    <div id="decision-header" class="decision-header-panel">
+        <div style="font-size: 0.9rem; opacity: 0.8;">System Decision Result</div>
+        <div id="decision-text-header" style="font-size: 2.5rem; font-weight: 900;">N/A</div>
+    </div>
+
+    <!-- SECTION 1: FACT BASE -->
+    <div class="glass-card" style="max-width: 100%;">
+        <h3 style="margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Fact Base Visualization</h3>
+        <div id="fact-base-grid" class="fact-grid"></div>
+    </div>
+
+    <!-- UPGRADE 1: FORWARD CHAINING EXECUTION -->
+    <div class="glass-card" style="max-width: 100%;">
+        <h3 style="margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Forward Chaining Execution Timeline</h3>
+        <div id="timeline-container" class="timeline"></div>
+    </div>
+
+    <!-- UPGRADE 2: MATCHED RULE PANEL -->
+    <div id="matched-rule-card-container" class="matched-rule-card">
+        <h3 style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Matched Inference Rule</h3>
+        
+        <div id="rule-logic-display">
+            <div style="font-size: 1.1rem; font-weight: 600;">Condition:</div>
+            <div id="rule-condition" class="rule-condition-box">Waiting for evaluation...</div>
+            
+            <div style="text-align: center; margin: 1rem 0; font-size: 2rem; color: var(--primary);">↓</div>
+            
+            <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Inference Result:</div>
+            <div id="rule-decision" class="rule-decision-box">N/A</div>
+        </div>
+
+        <!-- UPGRADE 3: RULE PRIORITY INDICATOR -->
+        <div class="priority-card">
+            <h4 style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 1rem;">Rule Priority Analysis</h4>
+            <div id="priority-details" style="font-size: 0.9rem; line-height: 1.6;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Fraud Detection Rules:</span>
+                    <span style="color: var(--danger);">Highest Priority</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Eligibility Rules:</span>
+                    <span style="color: var(--info);">Secondary Priority</span>
+                </div>
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--glass-border); font-weight: 600;">
+                    Selected Rule Group: <span id="selected-priority" style="color: var(--primary);">N/A</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ELIGIBILITY SCORE (From Previous Upgrade) -->
+    <div class="glass-card" style="max-width: 100%;">
+        <h3 style="margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Claim Eligibility Assessment</h3>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span style="color: var(--text-muted);">Eligibility Meter</span>
+            <span id="eligibility-text" style="font-weight: 700; color: var(--primary);">0%</span>
+        </div>
+        <div class="progress-container" style="height: 24px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border);">
+            <div id="eligibility-progress-fill" class="progress-fill" style="width: 0%;"></div>
+        </div>
+        <div id="eligibility-label" style="margin-top: 1rem; font-weight: 800; font-size: 1.1rem; text-align: center; letter-spacing: 2px;">INITIALIZING...</div>
+    </div>
+
+</div>

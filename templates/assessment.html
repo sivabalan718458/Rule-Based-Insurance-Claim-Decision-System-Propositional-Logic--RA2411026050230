@@ -1,0 +1,64 @@
+<h1 style="margin-bottom: 2rem;">Claim Assessment Module</h1>
+<div class="glass-card" style="max-width: 800px;">
+    <form id="assessment-form">
+        <div class="form-group">
+            <label>Claim Type</label>
+            <select name="claim_type" required>
+                <option value="Vehicle Claim">Vehicle Claim</option>
+                <option value="Health Claim">Health Claim</option>
+                <option value="Property Claim">Property Claim</option>
+                <option value="Travel Claim">Travel Claim</option>
+            </select>
+        </div>
+
+        <div class="question-card">
+            <p>Is your insurance policy currently active?</p>
+            <div class="radio-group">
+                <label class="radio-item"><input type="radio" name="policy_active" value="yes" checked> Yes</label>
+                <label class="radio-item"><input type="radio" name="policy_active" value="no"> No</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <p>Have you submitted all required claim documents?</p>
+            <div class="radio-group">
+                <label class="radio-item"><input type="radio" name="documents_valid" value="yes" checked> Yes</label>
+                <label class="radio-item"><input type="radio" name="documents_valid" value="no"> No</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <p>Was the incident officially reported?</p>
+            <div class="radio-group">
+                <label class="radio-item"><input type="radio" name="incident_reported" value="yes" checked> Yes</label>
+                <label class="radio-item"><input type="radio" name="incident_reported" value="no"> No</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <p>Has your insurance policy expired?</p>
+            <div class="radio-group">
+                <label class="radio-item"><input type="radio" name="policy_expired" value="yes"> Yes</label>
+                <label class="radio-item"><input type="radio" name="policy_expired" value="no" checked> No</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <p>Is claim verification still pending?</p>
+            <div class="radio-group">
+                <label class="radio-item"><input type="radio" name="verification_pending" value="yes"> Yes</label>
+                <label class="radio-item"><input type="radio" name="verification_pending" value="no" checked> No</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <p>Is there any suspicion of fraudulent activity?</p>
+            <div class="radio-group">
+                <label class="radio-item"><input type="radio" name="fraud_suspected" value="yes"> Yes</label>
+                <label class="radio-item"><input type="radio" name="fraud_suspected" value="no" checked> No</label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-primary" style="margin-top: 1rem;">Evaluate Claim</button>
+    </form>
+</div>

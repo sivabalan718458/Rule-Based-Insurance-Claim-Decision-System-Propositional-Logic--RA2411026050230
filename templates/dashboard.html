@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Insurance Claim DSS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div style="margin-bottom: 2rem;">
+                <h2 style="color: var(--primary); font-size: 1.2rem;">Expert System</h2>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Decision Support</p>
+            </div>
+            
+            <nav>
+                <a class="nav-link active" data-tab="home">Home</a>
+                <a class="nav-link" data-tab="assessment">Claim Assessment</a>
+                <a class="nav-link" data-tab="insights">Decision Insights</a>
+                <a class="nav-link" data-tab="risk">Risk Analysis</a>
+                <a class="nav-link" data-tab="reports">Reports</a>
+            </nav>
+
+            <div style="margin-top: auto; padding-top: 2rem; border-top: 1px solid var(--glass-border);">
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Logged in as: <strong>{{ session.username }}</strong></p>
+                <a href="{{ url_for('logout') }}" class="nav-link logout-btn" style="color: var(--danger);">Logout</a>
+            </div>
+        </aside>
+
+        <main class="content-area">
+            <!-- Home Tab -->
+            <div id="home" class="tab-content active">
+                <h1 style="margin-bottom: 2rem;">System Overview</h1>
+                
+                <div class="dashboard-cards-container">
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-title">Total Claims Processed</div>
+                        <div class="dashboard-card-value">{{ stats.total }}</div>
+                    </div>
+                    <div class="dashboard-card" style="border-bottom: 4px solid var(--success);">
+                        <div class="dashboard-card-title">Approved Claims</div>
+                        <div class="dashboard-card-value" style="color: var(--success);">{{ stats.approved }}</div>
+                    </div>
+                    <div class="dashboard-card" style="border-bottom: 4px solid var(--danger);">
+                        <div class="dashboard-card-title">Rejected Claims</div>
+                        <div class="dashboard-card-value" style="color: var(--danger);">{{ stats.rejected }}</div>
+                    </div>
+                    <div class="dashboard-card" style="border-bottom: 4px solid var(--warning);">
+                        <div class="dashboard-card-title">Manual Review Cases</div>
+                        <div class="dashboard-card-value" style="color: var(--warning);">{{ stats.review }}</div>
+                    </div>
+                </div>
+
+                <div class="glass-card" style="max-width: 100%; margin-top: 2rem; border: 1px solid var(--glass-border);">
+                    <h3 style="margin-bottom: 1rem; color: var(--primary);">System Description</h3>
+                    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 2rem;">
+                        This expert system evaluates insurance claims using rule-based inference and propositional logic with forward chaining execution. 
+                        It provides transparent reasoning, risk classification, and automated audit reports to support decision-making.
+                    </p>
+                    <button onclick="document.querySelector('[data-tab=assessment]').click()" class="btn-primary" style="width: auto; padding: 1rem 2.5rem; border-radius: 99px;">Start New Assessment</button>
+                </div>
+            </div>
+
+            <!-- Assessment Tab -->
+            <div id="assessment" class="tab-content">
+                {% include 'assessment.html' %}
+            </div>
+
+            <!-- Insights Tab -->
+            <div id="insights" class="tab-content">
+                {% include 'insights.html' %}
+            </div>
+
+            <!-- Risk Analysis Tab -->
+            <div id="risk" class="tab-content">
+                {% include 'risk.html' %}
+            </div>
+
+            <!-- Reports Tab -->
+            <div id="reports" class="tab-content">
+                {% include 'reports.html' %}
+            </div>
+
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

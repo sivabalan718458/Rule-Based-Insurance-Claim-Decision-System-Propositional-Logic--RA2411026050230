@@ -1,0 +1,49 @@
+<h1 style="margin-bottom: 2rem;">Risk Classification & Decision Reliability</h1>
+
+<div style="display: flex; flex-direction: column; gap: 2.5rem;">
+    <!-- SECTION 5: RISK CLASSIFICATION -->
+    <div class="glass-card" style="max-width: 100%; text-align: center;">
+        <h3 style="margin-bottom: 2rem; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Risk Classification</h3>
+        
+        <div style="margin-bottom: 2.5rem;">
+            <span id="risk-badge-large" class="badge" style="font-size: 1.5rem; padding: 0.8rem 2.5rem;">WAITING...</span>
+        </div>
+
+        <div style="max-width: 500px; margin: 0 auto;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="color: var(--text-muted);">Confidence Score</span>
+                <span id="confidence-text-large" style="font-weight: 700; color: var(--primary);">0%</span>
+            </div>
+            <div class="progress-container">
+                <div id="confidence-progress-fill" class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURE 1: DECISION RELIABILITY ANALYSIS PANEL -->
+    <div class="glass-card" style="max-width: 100%;">
+        <h3 style="margin-bottom: 2rem; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Decision Reliability Analysis</h3>
+        
+        <div class="reliability-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--glass-border);">
+                <span style="font-weight: 600;">Reliability Level:</span>
+                <span id="reliability-level-badge" class="badge" style="font-size: 1.2rem; padding: 0.5rem 1.5rem;">N/A</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div>
+                    <h4 style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; text-transform: uppercase;">Activated Rules</h4>
+                    <div id="activated-rules-container" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+                <div>
+                    <h4 style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; text-transform: uppercase;">Inactive Rules</h4>
+                    <div id="inactive-rules-container" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
